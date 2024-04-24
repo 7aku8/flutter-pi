@@ -2134,21 +2134,21 @@ static struct drmdev *find_drmdev(struct libseat *libseat) {
             continue;
         }
 
-        for_each_connector_in_drmdev(drmdev, connector) {
-            LOG_DEBUG("Checking connector \"%s\".\n", connector->connector->connector_type_id);
-            LOG_DEBUG("Connection state: %d\n", connector->variable_state.connection_state);
-            LOG_DEBUG("Connection status: %d\n", connector->variable_state.connection_status);
-
-            if (connector->variable_state.connection_state == kConnected_DrmConnectionState) {
-                goto found_connected_connector;
-            }
-        }
-        LOG_ERROR("Device \"%s\" doesn't have a display connected. Skipping.\n", device->nodes[DRM_NODE_PRIMARY]);
-        drmdev_unref(drmdev);
-        continue;
-
-found_connected_connector:
-        break;
+//        for_each_connector_in_drmdev(drmdev, connector) {
+//            LOG_DEBUG("Checking connector \"%s\".\n", connector->connector->connector_type_id);
+//            LOG_DEBUG("Connection state: %d\n", connector->variable_state.connection_state);
+//            LOG_DEBUG("Connection status: %d\n", connector->variable_state.connection_status);
+//
+//            if (connector->variable_state.connection_state == kConnected_DrmConnectionState) {
+//                goto found_connected_connector;
+//            }
+//        }
+//        LOG_ERROR("Device \"%s\" doesn't have a display connected. Skipping.\n", device->nodes[DRM_NODE_PRIMARY]);
+//        drmdev_unref(drmdev);
+//        continue;
+//
+//found_connected_connector:
+//        break;
     }
 
     drmFreeDevices(devices, n_devices);
