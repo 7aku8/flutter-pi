@@ -2135,6 +2135,10 @@ static struct drmdev *find_drmdev(struct libseat *libseat) {
         }
 
         for_each_connector_in_drmdev(drmdev, connector) {
+            LOG_DEBUG("Checking connector \"%s\".\n", connector->connector->connector_type_id);
+            LOG_DEBUG("Connection state: %d\n", connector->variable_state.connection_state);
+            LOG_DEBUG("Connection status: %d\n", connector->variable_state.connection_status);
+
             if (connector->variable_state.connection_state == kConnected_DrmConnectionState) {
                 goto found_connected_connector;
             }
